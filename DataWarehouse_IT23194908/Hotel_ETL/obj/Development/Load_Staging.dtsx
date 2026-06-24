@@ -1,0 +1,2898 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/25/2026 8:34:58 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-C9S2LPN"
+  DTS:CreatorName="DESKTOP-C9S2LPN\ASUS"
+  DTS:DTSID="{34C5DA42-FDA1-4566-A54B-AD70198E8A92}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Load_Staging"
+  DTS:PackageType="5"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{CAFDDA02-5E53-4662-9E05-0BEDE40B8192}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{698FE88C-B07B-4587-9235-9BF5C6A34B66}"
+      DTS:ObjectName="(localdb)\MSSQLLocalDB.Hotel_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Hotel_DW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Load_Staging-{698FE88C-B07B-4587-9235-9BF5C6A34B66}(localdb)\MSSQLLocalDB.Hotel_DW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{E2DE1622-9BED-4897-BD38-5002C00C6910}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\DWBI Project\users_v1.xls;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{B46693AF-4C2C-4342-B650-AEB15C5CC568}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\DWBI Project\hotel_v1.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="hotel_id"
+              DTS:DTSID="{AF5E7A2B-9001-4193-B48F-84692543338B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="hotel_name"
+              DTS:DTSID="{5416F226-531D-4AB1-87E4-4B691586E3EC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="city"
+              DTS:DTSID="{E74DBF9D-74B4-4254-8A6F-5B873DB54B1D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="country"
+              DTS:DTSID="{E352B050-B8E2-480B-BC1B-13E932DF0704}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="star_rating"
+              DTS:DTSID="{BEC51E58-18DA-424A-BA89-DFDAFD340284}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="lat"
+              DTS:DTSID="{D9D7F267-4AD5-4CC3-AD3F-0701CC3B8773}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="lon"
+              DTS:DTSID="{33AE672E-427E-4663-B51E-49805EB8EB93}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cleanliness_base"
+              DTS:DTSID="{7D4CC8D6-1AE2-420F-BBD2-74DC92BBA68A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="comfort_base"
+              DTS:DTSID="{3A17721B-29A3-4E45-8EF0-A888430FF817}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="facilities_base"
+              DTS:DTSID="{5FC7709C-3902-4747-9EA4-3D2BD7417369}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="location_base"
+              DTS:DTSID="{E39DA9EB-57AE-4E8B-B8E7-7419D562C816}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="staff_base"
+              DTS:DTSID="{C16BBC4E-669E-4465-9BC0-513020794A2F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="value_for_money_base"
+              DTS:DTSID="{B8AEE01E-F87C-4E21-9DF3-4FED3153E27B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{8BA6BB43-CF37-4344-B139-743DE39EDC64}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\DWBI Project\reviews_v1.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="review_id"
+              DTS:DTSID="{A81545E1-E9BE-45A1-B60F-6C03D14D79C5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="user_id"
+              DTS:DTSID="{27CA7BB0-EBBA-4739-88E7-70AA672EFAC3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="hotel_id"
+              DTS:DTSID="{BCA42916-6503-455D-A7FE-1085AA794BB4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="review_date"
+              DTS:DTSID="{919E74D9-BC80-488E-A747-6123960F0D87}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="score_overall"
+              DTS:DTSID="{7CC4C30A-0706-45D7-9D6B-45A9629424E5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="score_cleanliness"
+              DTS:DTSID="{37E01145-61DF-48BF-A71D-67F9F0606C06}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="score_comfort"
+              DTS:DTSID="{8488446F-BEF2-4699-A01F-4202E6CADFFA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="score_facilities"
+              DTS:DTSID="{ED00C6F7-F313-4A12-9D9A-959CB6D0DF7A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="score_location"
+              DTS:DTSID="{5EF55458-54E5-468D-9209-A81FFAD3A252}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="score_staff"
+              DTS:DTSID="{4A5EACD8-00CE-4A2B-B630-DBDA96FBBBDD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="score_value_for_money"
+              DTS:DTSID="{9AB9F76A-53E6-4286-8621-1DA2262A7012}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="review_text"
+              DTS:DTSID="{46D015E3-5C29-450E-B184-B6B4135481B0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 12"
+              DTS:DTSID="{2B0FFF88-5334-478F-B329-F2EB5A702392}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 13"
+              DTS:DTSID="{BA39E7CD-587D-470B-B530-3A48072A3F04}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 14"
+              DTS:DTSID="{28D177EE-A363-4FD8-8E26-C0FCDDDDF304}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT Load Staging Hotel"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5A047769-3AF2-4F81-945A-756C0A27A40A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Load Staging Hotel"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Load Staging Hotel\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Staging Hotel\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[hotel_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hotel_id]"
+                      length="50"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[hotel_id]"
+                      name="hotel_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[hotel_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hotel_name]"
+                      length="50"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[hotel_name]"
+                      name="hotel_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[city]"
+                      length="50"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[country]"
+                      length="50"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[star_rating]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[star_rating]"
+                      length="50"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[star_rating]"
+                      name="star_rating"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[lat]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[lat]"
+                      length="50"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[lat]"
+                      name="lat"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[lon]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[lon]"
+                      length="50"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[lon]"
+                      name="lon"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[cleanliness_base]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[cleanliness_base]"
+                      length="50"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[cleanliness_base]"
+                      name="cleanliness_base"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[comfort_base]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[comfort_base]"
+                      length="50"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[comfort_base]"
+                      name="comfort_base"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[facilities_base]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[facilities_base]"
+                      length="50"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[facilities_base]"
+                      name="facilities_base"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[location_base]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[location_base]"
+                      length="50"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[location_base]"
+                      name="location_base"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[staff_base]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[staff_base]"
+                      length="50"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[staff_base]"
+                      name="staff_base"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[value_for_money_base]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[value_for_money_base]"
+                      length="50"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[value_for_money_base]"
+                      name="value_for_money_base"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hotel_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="hotel_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hotel_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="hotel_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[star_rating]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="star_rating" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[lat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="lat" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[lon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="lon" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[cleanliness_base]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cleanliness_base" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[comfort_base]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="comfort_base" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[facilities_base]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="facilities_base" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[location_base]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="location_base" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[staff_base]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="staff_base" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[value_for_money_base]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="value_for_money_base" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Staging Hotel\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Staging_Hotel]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Staging Hotel\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hotel_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="hotel_id"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hotel_id]"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[hotel_id]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hotel_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="hotel_name"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hotel_name]"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[hotel_name]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[city]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="country"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[country]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[star_rating]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="star_rating"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[star_rating]"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[star_rating]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="lat"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lat]"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[lat]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lon]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="lon"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lon]"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[lon]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cleanliness_base]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cleanliness_base"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cleanliness_base]"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[cleanliness_base]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[comfort_base]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="comfort_base"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[comfort_base]"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[comfort_base]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[facilities_base]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="facilities_base"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[facilities_base]"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[facilities_base]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[location_base]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="location_base"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[location_base]"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[location_base]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[staff_base]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="staff_base"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[staff_base]"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[staff_base]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[value_for_money_base]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="value_for_money_base"
+                      externalMetadataColumnId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[value_for_money_base]"
+                      lineageId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output].Columns[value_for_money_base]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hotel_id]"
+                      dataType="i4"
+                      name="hotel_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hotel_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="hotel_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[star_rating]"
+                      dataType="i4"
+                      name="star_rating" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lat]"
+                      dataType="r8"
+                      name="lat" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lon]"
+                      dataType="r8"
+                      name="lon" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cleanliness_base]"
+                      dataType="r8"
+                      name="cleanliness_base" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[comfort_base]"
+                      dataType="r8"
+                      name="comfort_base" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[facilities_base]"
+                      dataType="r8"
+                      name="facilities_base" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[location_base]"
+                      dataType="r8"
+                      name="location_base" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[staff_base]"
+                      dataType="r8"
+                      name="staff_base" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[value_for_money_base]"
+                      dataType="r8"
+                      name="value_for_money_base" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Staging Hotel\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Staging Hotel\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Hotel\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Staging Hotel\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Load Staging Hotel.Paths[Flat File Source Output]"
+              endId="Package\DFT Load Staging Hotel\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\DFT Load Staging Hotel\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT Load Staging Reviews"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1F935FC8-A085-4BD1-B919-13436A9D7A94}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Load Staging Reviews"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Load Staging Reviews\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Load Staging Reviews\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Inputs[Data Conversion Input].Columns[review_text]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="review_text"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[review_text]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Inputs[Data Conversion Input].Columns[review_id]"
+                      cachedDataType="i4"
+                      cachedName="review_id"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[review_id]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Inputs[Data Conversion Input].Columns[user_id]"
+                      cachedDataType="i4"
+                      cachedName="user_id"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[user_id]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Inputs[Data Conversion Input].Columns[hotel_id]"
+                      cachedDataType="i4"
+                      cachedName="hotel_id"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[hotel_id]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Inputs[Data Conversion Input].Columns[score_overall]"
+                      cachedDataType="r8"
+                      cachedName="score_overall"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_overall]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Inputs[Data Conversion Input].Columns[score_cleanliness]"
+                      cachedDataType="r8"
+                      cachedName="score_cleanliness"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_cleanliness]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Inputs[Data Conversion Input].Columns[score_comfort]"
+                      cachedDataType="r8"
+                      cachedName="score_comfort"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_comfort]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Inputs[Data Conversion Input].Columns[score_facilities]"
+                      cachedDataType="r8"
+                      cachedName="score_facilities"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_facilities]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Inputs[Data Conversion Input].Columns[score_location]"
+                      cachedDataType="r8"
+                      cachedName="score_location"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_location]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Inputs[Data Conversion Input].Columns[score_staff]"
+                      cachedDataType="r8"
+                      cachedName="score_staff"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_staff]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Inputs[Data Conversion Input].Columns[score_value_for_money]"
+                      cachedDataType="r8"
+                      cachedName="score_value_for_money"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_value_for_money]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT Load Staging Reviews\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of review_text]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4000"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of review_text]"
+                      name="Copy of review_text"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[review_text]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of review_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of review_id]"
+                      name="Copy of review_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[review_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user_id]"
+                      name="Copy of user_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[user_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of hotel_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of hotel_id]"
+                      name="Copy of hotel_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[hotel_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_overall]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_overall]"
+                      name="Copy of score_overall"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_overall]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_cleanliness]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_cleanliness]"
+                      name="Copy of score_cleanliness"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_cleanliness]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_comfort]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_comfort]"
+                      name="Copy of score_comfort"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_comfort]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_facilities]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_facilities]"
+                      name="Copy of score_facilities"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_facilities]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_location]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_location]"
+                      name="Copy of score_location"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_location]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_staff]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_staff]"
+                      name="Copy of score_staff"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_staff]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_value_for_money]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_value_for_money]"
+                      name="Copy of score_value_for_money"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_value_for_money]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT Load Staging Reviews\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Staging Reviews\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Staging Reviews\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[review_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[review_id]"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[review_id]"
+                      name="review_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[user_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[user_id]"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[user_id]"
+                      name="user_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[hotel_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hotel_id]"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[hotel_id]"
+                      name="hotel_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[review_date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[review_date]"
+                      length="50"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[review_date]"
+                      name="review_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_overall]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_overall]"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_overall]"
+                      name="score_overall"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_cleanliness]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_cleanliness]"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_cleanliness]"
+                      name="score_cleanliness"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_comfort]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_comfort]"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_comfort]"
+                      name="score_comfort"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_facilities]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_facilities]"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_facilities]"
+                      name="score_facilities"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_location]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_location]"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_location]"
+                      name="score_location"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_staff]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_staff]"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_staff]"
+                      name="score_staff"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_value_for_money]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_value_for_money]"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[score_value_for_money]"
+                      name="score_value_for_money"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[review_text]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[review_text]"
+                      length="8000"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[review_text]"
+                      name="review_text"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[review_id]"
+                      dataType="i4"
+                      name="review_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[user_id]"
+                      dataType="i4"
+                      name="user_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hotel_id]"
+                      dataType="i4"
+                      name="hotel_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[review_date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="review_date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_overall]"
+                      dataType="r8"
+                      name="score_overall" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_cleanliness]"
+                      dataType="r8"
+                      name="score_cleanliness" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_comfort]"
+                      dataType="r8"
+                      name="score_comfort" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_facilities]"
+                      dataType="r8"
+                      name="score_facilities" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_location]"
+                      dataType="r8"
+                      name="score_location" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_staff]"
+                      dataType="r8"
+                      name="score_staff" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[score_value_for_money]"
+                      dataType="r8"
+                      name="score_value_for_money" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[review_text]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="review_text" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Column 12]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Column 13]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 13" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Column 14]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 14" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Staging Reviews\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Staging_Reviews]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Staging Reviews\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[review_date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="review_date"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[review_date]"
+                      lineageId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output].Columns[review_date]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of review_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of review_id"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[review_id]"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of review_id]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of user_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of user_id"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id]"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user_id]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of hotel_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of hotel_id"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hotel_id]"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of hotel_id]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of score_overall]"
+                      cachedDataType="r8"
+                      cachedName="Copy of score_overall"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_overall]"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_overall]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of review_text]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Copy of review_text"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[review_text]"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of review_text]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of score_value_for_money]"
+                      cachedDataType="r8"
+                      cachedName="Copy of score_value_for_money"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_value_for_money]"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_value_for_money]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of score_cleanliness]"
+                      cachedDataType="r8"
+                      cachedName="Copy of score_cleanliness"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_cleanliness]"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_cleanliness]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of score_comfort]"
+                      cachedDataType="r8"
+                      cachedName="Copy of score_comfort"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_comfort]"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_comfort]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of score_facilities]"
+                      cachedDataType="r8"
+                      cachedName="Copy of score_facilities"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_facilities]"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_facilities]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of score_location]"
+                      cachedDataType="r8"
+                      cachedName="Copy of score_location"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_location]"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_location]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of score_staff]"
+                      cachedDataType="r8"
+                      cachedName="Copy of score_staff"
+                      externalMetadataColumnId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_staff]"
+                      lineageId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of score_staff]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[review_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="review_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="user_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hotel_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="hotel_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[review_date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="review_date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_overall]"
+                      dataType="r8"
+                      name="score_overall" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_cleanliness]"
+                      dataType="r8"
+                      name="score_cleanliness" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_comfort]"
+                      dataType="r8"
+                      name="score_comfort" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_facilities]"
+                      dataType="r8"
+                      name="score_facilities" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_location]"
+                      dataType="r8"
+                      name="score_location" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_staff]"
+                      dataType="r8"
+                      name="score_staff" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_value_for_money]"
+                      dataType="r8"
+                      name="score_value_for_money" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[review_text]"
+                      dataType="nText"
+                      name="review_text" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Staging Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Staging Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Staging Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Load Staging Reviews.Paths[Data Conversion Output]"
+              endId="Package\DFT Load Staging Reviews\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT Load Staging Reviews\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT Load Staging Reviews.Paths[Flat File Source Output]"
+              endId="Package\DFT Load Staging Reviews\Data Conversion.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\DFT Load Staging Reviews\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT Load Staging Users"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{22671539-6208-44D3-84B0-ED81BCAF969B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Load Staging Users"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Load Staging Users\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Load Staging Users\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Staging Users\Data Conversion.Inputs[Data Conversion Input].Columns[user_gender]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="user_gender"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[user_gender]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Users\Data Conversion.Inputs[Data Conversion Input].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="country"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[country]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Users\Data Conversion.Inputs[Data Conversion Input].Columns[age_group]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="age_group"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[age_group]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Users\Data Conversion.Inputs[Data Conversion Input].Columns[traveller_type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="traveller_type"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[traveller_type]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT Load Staging Users\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user_gender]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user_gender]"
+                      name="Copy of user_gender"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[user_gender]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of country]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of country]"
+                      name="Copy of country"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[country]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of age_group]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of age_group]"
+                      name="Copy of age_group"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[age_group]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of traveller_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of traveller_type]"
+                      name="Copy of traveller_type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[traveller_type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT Load Staging Users\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Staging Users\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">users_v1$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Staging Users\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[user_id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_id]"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[user_id]"
+                      name="user_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[user_gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_gender]"
+                      length="255"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[user_gender]"
+                      name="user_gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].ExternalColumns[country]"
+                      length="255"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[age_group]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].ExternalColumns[age_group]"
+                      length="255"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[age_group]"
+                      name="age_group"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[traveller_type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].ExternalColumns[traveller_type]"
+                      length="255"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[traveller_type]"
+                      name="traveller_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[join_date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].ExternalColumns[join_date]"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[join_date]"
+                      name="join_date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_id]"
+                      dataType="r8"
+                      name="user_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].ExternalColumns[user_gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="user_gender" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].ExternalColumns[country]"
+                      dataType="wstr"
+                      length="255"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].ExternalColumns[age_group]"
+                      dataType="wstr"
+                      length="255"
+                      name="age_group" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].ExternalColumns[traveller_type]"
+                      dataType="wstr"
+                      length="255"
+                      name="traveller_type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].ExternalColumns[join_date]"
+                      dataType="date"
+                      name="join_date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Error Output].Columns[user_id]"
+                      dataType="r8"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Error Output].Columns[user_id]"
+                      name="user_id" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Error Output].Columns[user_gender]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Error Output].Columns[user_gender]"
+                      name="user_gender" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Error Output].Columns[country]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Error Output].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Error Output].Columns[age_group]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Error Output].Columns[age_group]"
+                      name="age_group" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Error Output].Columns[traveller_type]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Error Output].Columns[traveller_type]"
+                      name="traveller_type" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Error Output].Columns[join_date]"
+                      dataType="date"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Error Output].Columns[join_date]"
+                      name="join_date" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Staging Users\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Staging_Users]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Staging Users\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[user_id]"
+                      cachedDataType="r8"
+                      cachedName="user_id"
+                      externalMetadataColumnId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id]"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[user_id]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[join_date]"
+                      cachedDataType="date"
+                      cachedName="join_date"
+                      externalMetadataColumnId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[join_date]"
+                      lineageId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output].Columns[join_date]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of user_gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Copy of user_gender"
+                      externalMetadataColumnId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_gender]"
+                      lineageId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user_gender]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of country"
+                      externalMetadataColumnId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      lineageId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of country]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of age_group]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of age_group"
+                      externalMetadataColumnId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[age_group]"
+                      lineageId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of age_group]" />
+                    <inputColumn
+                      refId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of traveller_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of traveller_type"
+                      externalMetadataColumnId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[traveller_type]"
+                      lineageId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of traveller_type]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id]"
+                      dataType="i4"
+                      name="user_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="user_gender" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[age_group]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="age_group" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[traveller_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="traveller_type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[join_date]"
+                      dataType="dbDate"
+                      name="join_date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Staging Users\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Staging Users\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Staging Users\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Staging Users\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Load Staging Users.Paths[Data Conversion Output]"
+              endId="Package\DFT Load Staging Users\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT Load Staging Users\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT Load Staging Users.Paths[Excel Source Output]"
+              endId="Package\DFT Load Staging Users\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\DFT Load Staging Users\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{FDF1ACE7-653D-43B5-95B7-7BA49717F0A0}"
+      DTS:From="Package\DFT Load Staging Hotel"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT Load Staging Users" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{9F47EF01-7B0C-4B04-B726-AA0A6C76DE9D}"
+      DTS:From="Package\DFT Load Staging Users"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DFT Load Staging Reviews" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="189.6,41.6"
+          Id="Package\DFT Load Staging Hotel"
+          TopLeft="114.166660428875,74.5333328150378" />
+        <NodeLayout
+          Size="192.8,41.6"
+          Id="Package\DFT Load Staging Users"
+          TopLeft="109.999993989865,184.599998716315" />
+        <NodeLayout
+          Size="204.8,41.6"
+          Id="Package\DFT Load Staging Reviews"
+          TopLeft="99.1666612484391,284.266664689911" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="207.68332720937,116.133332815038">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68.4666659012768"
+              Start="0,0"
+              End="0,60.9666659012768">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.9666659012768" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="203.983327619152,226.199998716315">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.0666659735968"
+              Start="0,0"
+              End="0,50.5666659735968">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5666659735968" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT Load Staging Hotel">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\DFT Load Staging Hotel\Flat File Source"
+          TopLeft="105.833327550855,107.466665919357" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DFT Load Staging Hotel\OLE DB Destination"
+          TopLeft="92.499994946023,227.933331748313" />
+        <EdgeLayout
+          Id="Package\DFT Load Staging Hotel.Paths[Flat File Source Output]"
+          TopLeft="179.766661248439,149.066665919357">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78.8666658289565"
+              Start="0,0"
+              End="0,71.3666658289565">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.3666658289565" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\DFT Load Staging Users">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\DFT Load Staging Users\Excel Source"
+          TopLeft="158.999997630715,93.9999985992908" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DFT Load Staging Users\OLE DB Destination"
+          TopLeft="139.999997913837,312.999995335937" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\DFT Load Staging Users\Data Conversion"
+          TopLeft="148.999997779727,212.999996826053" />
+        <EdgeLayout
+          Id="Package\DFT Load Staging Users.Paths[Excel Source Output]"
+          TopLeft="227.999997705221,135.599998599291">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77.3999982267618"
+              Start="0,0"
+              End="0,69.8999982267618">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.8999982267618" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Staging Users.Paths[Data Conversion Output]"
+          TopLeft="226.299997846782,254.599996826053">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.3999985098839"
+              Start="0,0"
+              End="0,50.8999985098839">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.8999985098839" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\DFT Load Staging Reviews">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\DFT Load Staging Reviews\Flat File Source"
+          TopLeft="125.999998122454,97.9999985396862" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\DFT Load Staging Reviews\Data Conversion"
+          TopLeft="118.999998226762,207.999996900558" />
+        <EdgeLayout
+          Id="Package\DFT Load Staging Reviews.Paths[Flat File Source Output]"
+          TopLeft="199.299998174608,139.599998539686">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68.3999983608722"
+              Start="0,0"
+              End="0,60.8999983608722">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.8999983608722" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DFT Load Staging Reviews\OLE DB Destination"
+          TopLeft="113.999998301268,318.99999524653" />
+        <EdgeLayout
+          Id="Package\DFT Load Staging Reviews.Paths[Data Conversion Output]"
+          TopLeft="198.299998264015,249.599996900558">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69.3999983459712"
+              Start="0,0"
+              End="0,61.8999983459712">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.8999983459712" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Staging Hotel\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Staging Users\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Staging Users\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Staging Reviews\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

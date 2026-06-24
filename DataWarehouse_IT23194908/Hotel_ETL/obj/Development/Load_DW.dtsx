@@ -1,0 +1,3037 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/25/2026 10:01:47 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-C9S2LPN"
+  DTS:CreatorName="DESKTOP-C9S2LPN\ASUS"
+  DTS:DTSID="{18929B60-7BF7-4A43-8FA5-149672413F89}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{0832BAC2-3D34-4266-85D6-81FB7933FD8E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4D5D7869-367B-450E-879B-3BBFB6666906}"
+      DTS:ObjectName="(localdb)\MSSQLLocalDB.Hotel_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Hotel_DW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{4D5D7869-367B-450E-879B-3BBFB6666906}(localdb)\MSSQLLocalDB.Hotel_DW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT Load Dim_Date"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{73253829-DD9B-4FB8-B7F1-3CE6B7380B9C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Load Dim_Date"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Load Dim_Date\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dim_Date]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Dim_Date\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Dim_Date\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[full_date]"
+                      cachedDataType="dbDate"
+                      cachedName="full_date"
+                      externalMetadataColumnId="Package\DFT Load Dim_Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[full_date]"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[full_date]" />
+                    <inputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_key]"
+                      cachedDataType="i4"
+                      cachedName="date_key"
+                      externalMetadataColumnId="Package\DFT Load Dim_Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_key]"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_key]" />
+                    <inputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[year]"
+                      cachedDataType="i4"
+                      cachedName="year"
+                      externalMetadataColumnId="Package\DFT Load Dim_Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]" />
+                    <inputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[month]"
+                      cachedDataType="i4"
+                      cachedName="month"
+                      externalMetadataColumnId="Package\DFT Load Dim_Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month]"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[month]" />
+                    <inputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[day]"
+                      cachedDataType="i4"
+                      cachedName="day"
+                      externalMetadataColumnId="Package\DFT Load Dim_Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day]"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[day]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_key]"
+                      dataType="i4"
+                      name="date_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[full_date]"
+                      dataType="dbDate"
+                      name="full_date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                      dataType="i4"
+                      name="year" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month]"
+                      dataType="i4"
+                      name="month" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day]"
+                      dataType="i4"
+                      name="day" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Dim_Date\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Load Dim_Date\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Dim_Date\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+    CAST(CONVERT(VARCHAR(8), CleanDate, 112) AS INT) AS date_key,
+    CleanDate AS full_date,
+    YEAR(CleanDate) AS [year],
+    MONTH(CleanDate) AS [month],
+    DAY(CleanDate) AS [day]
+FROM
+(
+    SELECT TRY_CAST(review_date AS DATE) AS CleanDate
+    FROM Staging_Reviews
+) A
+WHERE CleanDate IS NOT NULL
+  AND CleanDate &lt;&gt; '1900-01-01';</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Dim_Date\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[full_date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[full_date]"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[full_date]"
+                      name="full_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_key]"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_key]"
+                      name="date_key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]"
+                      name="year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[month]"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[month]"
+                      name="month"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[day]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[day]"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[day]"
+                      name="day"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[full_date]"
+                      dataType="dbDate"
+                      name="full_date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_key]"
+                      dataType="i4"
+                      name="date_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                      dataType="i4"
+                      name="year" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[month]"
+                      dataType="i4"
+                      name="month" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[day]"
+                      dataType="i4"
+                      name="day" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_key]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_key]"
+                      name="date_key" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[full_date]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[full_date]"
+                      name="full_date" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year]"
+                      name="year" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[month]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[month]"
+                      name="month" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[day]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[day]"
+                      name="day" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Load Dim_Date.Paths[OLE DB Source Output]"
+              endId="Package\DFT Load Dim_Date\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT Load Dim_Date\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT Load Dim_Hotel"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{38D9B7D6-96C3-4C90-B0AA-CC6AF27D9A07}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Load Dim_Hotel"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Load Dim_Hotel\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dim_Hotel]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Dim_Hotel\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hotel_id]"
+                      cachedDataType="i4"
+                      cachedName="hotel_id"
+                      externalMetadataColumnId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hotel_id]"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].Columns[hotel_id]" />
+                    <inputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hotel_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="hotel_name"
+                      externalMetadataColumnId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hotel_name]"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].Columns[hotel_name]" />
+                    <inputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].Columns[city]" />
+                    <inputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="country"
+                      externalMetadataColumnId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].Columns[country]" />
+                    <inputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[star_rating]"
+                      cachedDataType="i4"
+                      cachedName="star_rating"
+                      externalMetadataColumnId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[star_rating]"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].Columns[star_rating]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hotel_key]"
+                      dataType="i4"
+                      name="hotel_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hotel_id]"
+                      dataType="i4"
+                      name="hotel_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hotel_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="hotel_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[star_rating]"
+                      dataType="i4"
+                      name="star_rating" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Dim_Hotel\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Dim_Hotel\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+    hotel_id,
+    hotel_name,
+    city,
+    country,
+    star_rating
+FROM Staging_Hotel;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Dim_Hotel\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].Columns[hotel_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hotel_id]"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].Columns[hotel_id]"
+                      name="hotel_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].Columns[hotel_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hotel_name]"
+                      length="100"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].Columns[hotel_name]"
+                      name="hotel_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].Columns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      length="50"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].Columns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      length="50"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].Columns[star_rating]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[star_rating]"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].Columns[star_rating]"
+                      name="star_rating"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hotel_id]"
+                      dataType="i4"
+                      name="hotel_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hotel_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="hotel_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[star_rating]"
+                      dataType="i4"
+                      name="star_rating" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hotel_id]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hotel_id]"
+                      name="hotel_id" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hotel_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hotel_name]"
+                      name="hotel_name" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[star_rating]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[star_rating]"
+                      name="star_rating" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Load Dim_Hotel.Paths[OLE DB Source Output]"
+              endId="Package\DFT Load Dim_Hotel\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT Load Dim_Hotel\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT Load Dim_User"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6E162294-8B54-4F6E-98AF-AE591FCAF67F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Load Dim_User"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Load Dim_User\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dim_User]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Dim_User\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[user_id]"
+                      cachedDataType="i4"
+                      cachedName="user_id"
+                      externalMetadataColumnId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id]"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[user_id]" />
+                    <inputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="country"
+                      externalMetadataColumnId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[country]" />
+                    <inputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[age_group]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="age_group"
+                      externalMetadataColumnId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[age_group]"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[age_group]" />
+                    <inputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[traveller_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="traveller_type"
+                      externalMetadataColumnId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[traveller_type]"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[traveller_type]" />
+                    <inputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="gender"
+                      externalMetadataColumnId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[gender]" />
+                    <inputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[start_date]"
+                      cachedDataType="dbDate"
+                      cachedName="start_date"
+                      externalMetadataColumnId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_date]"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_date]" />
+                    <inputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[end_date]"
+                      cachedDataType="i4"
+                      cachedName="end_date"
+                      externalMetadataColumnId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_date]"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_date]" />
+                    <inputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[is_current]"
+                      cachedDataType="i4"
+                      cachedName="is_current"
+                      externalMetadataColumnId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_current]"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[is_current]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_key]"
+                      dataType="i4"
+                      name="user_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id]"
+                      dataType="i4"
+                      name="user_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[age_group]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="age_group" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[traveller_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="traveller_type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_date]"
+                      dataType="dbDate"
+                      name="start_date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_date]"
+                      dataType="dbDate"
+                      name="end_date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_current]"
+                      dataType="bool"
+                      name="is_current" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Dim_User\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Dim_User\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+    user_id,
+    user_gender AS gender,
+    country,
+    age_group,
+    traveller_type,
+    CAST(GETDATE() AS DATE) AS start_date,
+    NULL AS end_date,
+    1 AS is_current
+FROM Staging_Users;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Dim_User\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[user_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[user_id]"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[user_id]"
+                      name="user_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      length="50"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[age_group]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[age_group]"
+                      length="20"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[age_group]"
+                      name="age_group"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[traveller_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[traveller_type]"
+                      length="50"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[traveller_type]"
+                      name="traveller_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gender]"
+                      length="10"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[gender]"
+                      name="gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_date]"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_date]"
+                      name="start_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_date]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[end_date]"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_date]"
+                      name="end_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[is_current]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[is_current]"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].Columns[is_current]"
+                      name="is_current"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[user_id]"
+                      dataType="i4"
+                      name="user_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[age_group]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="age_group" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[traveller_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="traveller_type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_date]"
+                      dataType="dbDate"
+                      name="start_date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[end_date]"
+                      dataType="i4"
+                      name="end_date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[is_current]"
+                      dataType="i4"
+                      name="is_current" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[user_id]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[user_id]"
+                      name="user_id" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gender]"
+                      name="gender" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[age_group]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[age_group]"
+                      name="age_group" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[traveller_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[traveller_type]"
+                      name="traveller_type" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_date]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_date]"
+                      name="start_date" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[end_date]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[end_date]"
+                      name="end_date" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[is_current]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[is_current]"
+                      name="is_current" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Load Dim_User.Paths[OLE DB Source Output]"
+              endId="Package\DFT Load Dim_User\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT Load Dim_User\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT Load Fact_Reviews"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{DACCA930-6E9B-44C8-9FDC-1B8F6EEC9ADE}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Load Fact_Reviews"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Load Fact_Reviews\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Load Fact_Reviews\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Fact_Reviews\Data Conversion.Inputs[Data Conversion Input].Columns[user_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="user_id"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[user_id]" />
+                    <inputColumn
+                      refId="Package\DFT Load Fact_Reviews\Data Conversion.Inputs[Data Conversion Input].Columns[hotel_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="hotel_id"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[hotel_id]" />
+                    <inputColumn
+                      refId="Package\DFT Load Fact_Reviews\Data Conversion.Inputs[Data Conversion Input].Columns[review_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="review_id"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[review_id]" />
+                    <inputColumn
+                      refId="Package\DFT Load Fact_Reviews\Data Conversion.Inputs[Data Conversion Input].Columns[date_key]"
+                      cachedDataType="i4"
+                      cachedName="date_key"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_key]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT Load Fact_Reviews\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user_id]"
+                      name="Copy of user_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[user_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of hotel_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of hotel_id]"
+                      name="Copy of hotel_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[hotel_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of review_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of review_id]"
+                      name="Copy of review_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[review_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of date_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of date_key]"
+                      name="Copy of date_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_key]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT Load Fact_Reviews\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Fact_Reviews\Lookup Dim_Date"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup Dim_Date"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Date]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Date]) [refTable]
+where [refTable].[date_key] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="date_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="full_date" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="year" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="month" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="day" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of date_key]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Fact_Reviews\Lookup Dim_Date.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Fact_Reviews\Lookup Dim_Date.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Fact_Reviews\Lookup Dim_Date.Inputs[Lookup Input].Columns[Copy of date_key]"
+                      cachedDataType="i4"
+                      cachedName="Copy of date_key"
+                      lineageId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of date_key]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">date_key</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Fact_Reviews\Lookup Dim_Date.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT Load Fact_Reviews\Lookup Dim_Date.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\Lookup Dim_Date.Outputs[Lookup Match Output].Columns[date_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT Load Fact_Reviews\Lookup Dim_Date.Outputs[Lookup Match Output].Columns[date_key]"
+                      name="date_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">date_key</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load Fact_Reviews\Lookup Dim_Date.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT Load Fact_Reviews\Lookup Dim_Date.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load Fact_Reviews\Lookup Dim_Date.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT Load Fact_Reviews\Lookup Dim_Date.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\Lookup Dim_Date.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Fact_Reviews\Lookup Dim_Date.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\Lookup Dim_Date.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Fact_Reviews\Lookup Dim_Date.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup Dim_Hotel"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Hotel]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Hotel]) [refTable]
+where [refTable].[hotel_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="hotel_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="hotel_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="hotel_name" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="city" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="country" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="star_rating" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of hotel_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel.Inputs[Lookup Input].Columns[Copy of hotel_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of hotel_id"
+                      lineageId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of hotel_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">hotel_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel.Outputs[Lookup Match Output].Columns[hotel_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel.Outputs[Lookup Match Output].Columns[hotel_key]"
+                      name="hotel_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">hotel_key</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Fact_Reviews\Lookup Dim_User"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup Dim_User"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_User]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_User]) [refTable]
+where [refTable].[user_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="user_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="user_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="gender" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="country" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="age_group" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="traveller_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="start_date" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="end_date" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="is_current" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Fact_Reviews\Lookup Dim_User.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Fact_Reviews\Lookup Dim_User.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Fact_Reviews\Lookup Dim_User.Inputs[Lookup Input].Columns[Copy of user_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of user_id"
+                      lineageId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">user_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Fact_Reviews\Lookup Dim_User.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT Load Fact_Reviews\Lookup Dim_User.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\Lookup Dim_User.Outputs[Lookup Match Output].Columns[user_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT Load Fact_Reviews\Lookup Dim_User.Outputs[Lookup Match Output].Columns[user_key]"
+                      name="user_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">user_key</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load Fact_Reviews\Lookup Dim_User.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT Load Fact_Reviews\Lookup Dim_User.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load Fact_Reviews\Lookup Dim_User.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT Load Fact_Reviews\Lookup Dim_User.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\Lookup Dim_User.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Fact_Reviews\Lookup Dim_User.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\Lookup Dim_User.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Fact_Reviews\Lookup Dim_User.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Fact_Reviews\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Fact_Reviews]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[score_overall]"
+                      cachedDataType="r8"
+                      cachedName="score_overall"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_overall]"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_overall]" />
+                    <inputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[score_cleanliness]"
+                      cachedDataType="r8"
+                      cachedName="score_cleanliness"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_cleanliness]"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_cleanliness]" />
+                    <inputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[score_comfort]"
+                      cachedDataType="r8"
+                      cachedName="score_comfort"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_comfort]"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_comfort]" />
+                    <inputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[score_facilities]"
+                      cachedDataType="r8"
+                      cachedName="score_facilities"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_facilities]"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_facilities]" />
+                    <inputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[score_location]"
+                      cachedDataType="r8"
+                      cachedName="score_location"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_location]"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_location]" />
+                    <inputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[score_staff]"
+                      cachedDataType="r8"
+                      cachedName="score_staff"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_staff]"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_staff]" />
+                    <inputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[score_value_for_money]"
+                      cachedDataType="r8"
+                      cachedName="score_value_for_money"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_value_for_money]"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_value_for_money]" />
+                    <inputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of review_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of review_id"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[review_id]"
+                      lineageId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of review_id]" />
+                    <inputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[user_key]"
+                      cachedDataType="i4"
+                      cachedName="user_key"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_key]"
+                      lineageId="Package\DFT Load Fact_Reviews\Lookup Dim_User.Outputs[Lookup Match Output].Columns[user_key]" />
+                    <inputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hotel_key]"
+                      cachedDataType="i4"
+                      cachedName="hotel_key"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hotel_key]"
+                      lineageId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel.Outputs[Lookup Match Output].Columns[hotel_key]" />
+                    <inputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of date_key]"
+                      cachedDataType="i4"
+                      cachedName="Copy of date_key"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_key]"
+                      lineageId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of date_key]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[review_id]"
+                      dataType="i4"
+                      name="review_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_key]"
+                      dataType="i4"
+                      name="user_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hotel_key]"
+                      dataType="i4"
+                      name="hotel_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_key]"
+                      dataType="i4"
+                      name="date_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_overall]"
+                      dataType="r8"
+                      name="score_overall" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_cleanliness]"
+                      dataType="r8"
+                      name="score_cleanliness" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_comfort]"
+                      dataType="r8"
+                      name="score_comfort" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_facilities]"
+                      dataType="r8"
+                      name="score_facilities" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_location]"
+                      dataType="r8"
+                      name="score_location" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_staff]"
+                      dataType="r8"
+                      name="score_staff" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_value_for_money]"
+                      dataType="r8"
+                      name="score_value_for_money" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accm_txn_create_time]"
+                      dataType="dbTimeStamp"
+                      name="accm_txn_create_time" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      name="accm_txn_complete_time" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[txn_process_time_hours]"
+                      dataType="i4"
+                      name="txn_process_time_hours" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Fact_Reviews\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    TRY_CAST(review_id AS INT) AS review_id,
+    TRY_CAST(user_id AS INT) AS user_id,
+    TRY_CAST(hotel_id AS INT) AS hotel_id,
+    CAST(CONVERT(VARCHAR(8), TRY_CAST(review_date AS DATE), 112) AS INT) AS date_key,
+    score_overall,
+    score_cleanliness,
+    score_comfort,
+    score_facilities,
+    score_location,
+    score_staff,
+    score_value_for_money
+FROM Staging_Reviews
+WHERE TRY_CAST(review_id AS INT) IS NOT NULL
+  AND TRY_CAST(user_id AS INT) IS NOT NULL
+  AND TRY_CAST(hotel_id AS INT) IS NOT NULL
+  AND TRY_CAST(review_date AS DATE) IS NOT NULL
+  AND TRY_CAST(review_date AS DATE) &lt;&gt; '1900-01-01';</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Fact_Reviews\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[(localdb)\MSSQLLocalDB.Hotel_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[review_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[review_id]"
+                      length="50"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[review_id]"
+                      name="review_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[user_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[user_id]"
+                      length="50"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[user_id]"
+                      name="user_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[hotel_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hotel_id]"
+                      length="50"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[hotel_id]"
+                      name="hotel_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_overall]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[score_overall]"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_overall]"
+                      name="score_overall"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_cleanliness]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[score_cleanliness]"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_cleanliness]"
+                      name="score_cleanliness"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_comfort]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[score_comfort]"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_comfort]"
+                      name="score_comfort"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_facilities]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[score_facilities]"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_facilities]"
+                      name="score_facilities"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_location]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[score_location]"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_location]"
+                      name="score_location"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_staff]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[score_staff]"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_staff]"
+                      name="score_staff"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_value_for_money]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[score_value_for_money]"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[score_value_for_money]"
+                      name="score_value_for_money"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_key]"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_key]"
+                      name="date_key"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[review_id]"
+                      dataType="i4"
+                      name="review_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[user_id]"
+                      dataType="i4"
+                      name="user_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hotel_id]"
+                      dataType="i4"
+                      name="hotel_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[score_overall]"
+                      dataType="r8"
+                      name="score_overall" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[score_cleanliness]"
+                      dataType="r8"
+                      name="score_cleanliness" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[score_comfort]"
+                      dataType="r8"
+                      name="score_comfort" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[score_facilities]"
+                      dataType="r8"
+                      name="score_facilities" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[score_location]"
+                      dataType="r8"
+                      name="score_location" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[score_staff]"
+                      dataType="r8"
+                      name="score_staff" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[score_value_for_money]"
+                      dataType="r8"
+                      name="score_value_for_money" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_key]"
+                      dataType="i4"
+                      name="date_key" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[review_id]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[review_id]"
+                      name="review_id" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[user_id]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[user_id]"
+                      name="user_id" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hotel_id]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hotel_id]"
+                      name="hotel_id" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_key]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_key]"
+                      name="date_key" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[score_overall]"
+                      dataType="r8"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[score_overall]"
+                      name="score_overall" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[score_cleanliness]"
+                      dataType="r8"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[score_cleanliness]"
+                      name="score_cleanliness" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[score_comfort]"
+                      dataType="r8"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[score_comfort]"
+                      name="score_comfort" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[score_facilities]"
+                      dataType="r8"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[score_facilities]"
+                      name="score_facilities" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[score_location]"
+                      dataType="r8"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[score_location]"
+                      name="score_location" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[score_staff]"
+                      dataType="r8"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[score_staff]"
+                      name="score_staff" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[score_value_for_money]"
+                      dataType="r8"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[score_value_for_money]"
+                      name="score_value_for_money" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Load Fact_Reviews.Paths[Data Conversion Output]"
+              endId="Package\DFT Load Fact_Reviews\Lookup Dim_User.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT Load Fact_Reviews\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT Load Fact_Reviews.Paths[Lookup Match Output]"
+              endId="Package\DFT Load Fact_Reviews\Lookup Dim_Date.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT Load Fact_Reviews.Paths[Lookup Match Output1]"
+              endId="Package\DFT Load Fact_Reviews\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT Load Fact_Reviews\Lookup Dim_Date.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT Load Fact_Reviews.Paths[Lookup Match Output2]"
+              endId="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT Load Fact_Reviews\Lookup Dim_User.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT Load Fact_Reviews.Paths[OLE DB Source Output]"
+              endId="Package\DFT Load Fact_Reviews\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT Load Fact_Reviews\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{1F0BD0F4-0257-423A-8AD1-015197D9320F}"
+      DTS:From="Package\DFT Load Dim_Hotel"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT Load Dim_User" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{1F476C4D-46DD-4C4B-9DE7-7728CF7D5A5A}"
+      DTS:From="Package\DFT Load Dim_User"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DFT Load Dim_Date" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{03EE3AE9-72E2-44D8-AE7B-6D4F8106B5D9}"
+      DTS:From="Package\DFT Load Dim_Date"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DFT Load Fact_Reviews" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\DFT Load Dim_Hotel"
+          TopLeft="105.833327550855,61.5333329054383" />
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\DFT Load Dim_User"
+          TopLeft="106.666660838657,160.333332218395" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="193.649994194756,103.133332905438">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57.1999993129571"
+              Start="0,0"
+              End="0,49.6999993129571">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.6999993129571" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\DFT Load Dim_Date"
+          TopLeft="107.499994126459,251.333331585593" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="193.883327482558,201.933332218395">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.3999993671974"
+              Start="0,0"
+              End="0,41.8999993671974">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.8999993671974" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="192.8,41.6"
+          Id="Package\DFT Load Fact_Reviews"
+          TopLeft="99.1666612484392,344.06666427407" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="194.933327687449,292.933331585593">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.1333326884773"
+              Start="0,0"
+              End="0,43.6333326884773">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.6333326884773" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT Load Dim_Hotel">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\DFT Load Dim_Hotel\OLE DB Source"
+          TopLeft="160.999997600913,74.9999988824129" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DFT Load Dim_Hotel\OLE DB Destination"
+          TopLeft="151.999997735023,206.99999691546" />
+        <EdgeLayout
+          Id="Package\DFT Load Dim_Hotel.Paths[OLE DB Source Output]"
+          TopLeft="237.299997667968,116.599998882413">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,90.3999980330467"
+              Start="0,0"
+              End="0,82.8999980330467">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.8999980330467" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Dim_Hotel\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Dim_Hotel\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT Load Dim_User">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\DFT Load Dim_User\OLE DB Source"
+          TopLeft="145.99999782443,71.9999989271164" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DFT Load Dim_User\OLE DB Destination"
+          TopLeft="129.999998062849,178.999997332692" />
+        <EdgeLayout
+          Id="Package\DFT Load Dim_User.Paths[OLE DB Source Output]"
+          TopLeft="218.79999794364,113.599998927116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.3999984055758"
+              Start="0,0"
+              End="0,57.8999984055758">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.8999984055758" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Dim_User\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Dim_User\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT Load Dim_Date">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\DFT Load Dim_Date\OLE DB Source"
+          TopLeft="147.999997794628,63.9999990463257" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DFT Load Dim_Date\OLE DB Destination"
+          TopLeft="132.999998018146,167.999997496605" />
+        <EdgeLayout
+          Id="Package\DFT Load Dim_Date.Paths[OLE DB Source Output]"
+          TopLeft="221.299997906387,105.599999046326">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.3999984502793"
+              Start="0,0"
+              End="0,54.8999984502793">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.8999984502793" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Dim_Date\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Dim_Date\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT Load Fact_Reviews">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\DFT Load Fact_Reviews\OLE DB Source"
+          TopLeft="141.999997884035,36.999999448657" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DFT Load Fact_Reviews\OLE DB Destination"
+          TopLeft="133.999998003244,417.999993771315" />
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel"
+          TopLeft="135.999997973442,248.999996289611" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\DFT Load Fact_Reviews\Lookup Dim_Date"
+          TopLeft="135.999997973442,335.799995544553" />
+        <EdgeLayout
+          Id="Package\DFT Load Fact_Reviews.Paths[Lookup Match Output]"
+          TopLeft="217.399997973442,290.599996289611">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.199999254942"
+              Start="0,0"
+              End="0,37.699999254942">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.699999254942" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,13.045312127471,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Fact_Reviews.Paths[Lookup Match Output1]"
+          TopLeft="218.199997988343,377.399995544553">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.5999982267616"
+              Start="0,0"
+              End="0,33.0999982267616">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.0999982267616" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,10.7453116133808,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\DFT Load Fact_Reviews\Lookup Dim_User"
+          TopLeft="139.999997913837,183.799997809529" />
+        <EdgeLayout
+          Id="Package\DFT Load Fact_Reviews.Paths[Lookup Match Output2]"
+          TopLeft="219.39999794364,225.399997809529">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.5999984800816"
+              Start="0,0"
+              End="0,16.0999984800816">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.0999984800816" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,2.24531174004079,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\DFT Load Fact_Reviews\Data Conversion"
+          TopLeft="140.999997898936,111.799998882413" />
+        <EdgeLayout
+          Id="Package\DFT Load Fact_Reviews.Paths[OLE DB Source Output]"
+          TopLeft="218.499997891486,78.599999448657">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.1999994337559"
+              Start="0,0"
+              End="0,25.6999994337559">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.6999994337559" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Fact_Reviews.Paths[Data Conversion Output]"
+          TopLeft="219.899997906387,153.399998882413">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.3999989271164"
+              Start="0,0"
+              End="0,22.8999989271164">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.8999989271164" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Fact_Reviews\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Fact_Reviews\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Fact_Reviews\Lookup Dim_Hotel">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Hotel]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Fact_Reviews\Lookup Dim_Date">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Date]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Fact_Reviews\Lookup Dim_User">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_User]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
