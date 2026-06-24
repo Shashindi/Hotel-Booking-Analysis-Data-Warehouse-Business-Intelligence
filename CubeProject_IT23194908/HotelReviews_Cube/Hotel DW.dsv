@@ -1,0 +1,225 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="b720dee8-849c-421d-88c3-028656e95191" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Hotel DW_1</ID>
+  <Name>Hotel DW</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>Hotel DW_1</DataSourceID>
+  <Schema>
+    <xs:schema id="Hotel_x0020_DW_1" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="Hotel_x0020_DW_1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="15e5f446-caeb-4dfa-8239-1010bbf840de">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_Dim_Date" msprop:design-time-name="d016bca3-f04a-4502-a8cd-ae1915c0df6b" msprop:FriendlyName="Dim_Date" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:DbTableName="Dim_Date">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="date_key" msprop:FriendlyName="date_key" msprop:DbColumnName="date_key" msprop:design-time-name="f2c40646-cf7c-470a-9628-790547c316a3" type="xs:int" />
+                  <xs:element name="full_date" msprop:FriendlyName="full_date" msprop:DbColumnName="full_date" msprop:design-time-name="7059e227-5ce0-4ea2-9663-6d19705ce462" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="year" msprop:FriendlyName="year" msprop:DbColumnName="year" msprop:design-time-name="fde9bd08-6663-4ebb-8c8a-d51a33212eaf" type="xs:int" minOccurs="0" />
+                  <xs:element name="month" msprop:FriendlyName="month" msprop:DbColumnName="month" msprop:design-time-name="99c62f28-fc24-472f-b996-bc46e2f50489" type="xs:int" minOccurs="0" />
+                  <xs:element name="day" msprop:FriendlyName="day" msprop:DbColumnName="day" msprop:design-time-name="461147cc-1687-4462-ba02-cf910af94953" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_Hotel" msprop:design-time-name="ba299e86-cf5c-4d16-82f8-5450fa0bb871" msprop:FriendlyName="Dim_Hotel" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:DbTableName="Dim_Hotel">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="hotel_key" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="hotel_key" msprop:DbColumnName="hotel_key" msprop:design-time-name="248aa666-1046-42fa-94c6-27eaedd8f8da" type="xs:int" />
+                  <xs:element name="hotel_id" msprop:FriendlyName="hotel_id" msprop:DbColumnName="hotel_id" msprop:design-time-name="4a711a05-bd29-4621-9c4d-7ad57d6afd51" type="xs:int" minOccurs="0" />
+                  <xs:element name="hotel_name" msprop:FriendlyName="hotel_name" msprop:DbColumnName="hotel_name" msprop:design-time-name="088bf174-c35e-4c1f-90fe-630d4680786a" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="city" msprop:FriendlyName="city" msprop:DbColumnName="city" msprop:design-time-name="1396c0b3-844d-498f-b4e3-fd504a36cf19" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="country" msprop:FriendlyName="country" msprop:DbColumnName="country" msprop:design-time-name="ddf719ba-9b69-4727-8b3d-c4c3b5d5022b" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="star_rating" msprop:FriendlyName="star_rating" msprop:DbColumnName="star_rating" msprop:design-time-name="21f21147-0f15-44a1-940b-14c6e2c8cc8e" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_Location" msprop:design-time-name="9dc8aa62-137f-418f-af6a-337de025e57a" msprop:FriendlyName="Dim_Location" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:DbTableName="Dim_Location">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="location_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="location_id" msprop:DbColumnName="location_id" msprop:design-time-name="6e0ea6a1-430e-4a66-9c51-04daf8fab68b" type="xs:int" />
+                  <xs:element name="city" msprop:FriendlyName="city" msprop:DbColumnName="city" msprop:design-time-name="6f3e8857-dffc-4bb7-8264-9334c49752fc" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="country" msprop:FriendlyName="country" msprop:DbColumnName="country" msprop:design-time-name="ed4b90c3-8fde-4b36-91f4-33de2f20cf58" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="continent" msprop:FriendlyName="continent" msprop:DbColumnName="continent" msprop:design-time-name="69090db7-b93e-45bf-b504-869f07e0db81" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="region" msprop:FriendlyName="region" msprop:DbColumnName="region" msprop:design-time-name="b8db4588-3b34-48f0-8b9a-88c1882c2205" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_User" msprop:design-time-name="27c72123-7c1e-4c84-a005-2c4e1dbb6ee2" msprop:FriendlyName="Dim_User" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:DbTableName="Dim_User">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="user_key" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="user_key" msprop:DbColumnName="user_key" msprop:design-time-name="c350cb50-8ec8-46ff-9ebc-022e273e59a9" type="xs:int" />
+                  <xs:element name="user_id" msprop:FriendlyName="user_id" msprop:DbColumnName="user_id" msprop:design-time-name="7d8a1f26-e7b5-4502-89f2-64f32dde08c1" type="xs:int" minOccurs="0" />
+                  <xs:element name="gender" msprop:FriendlyName="gender" msprop:DbColumnName="gender" msprop:design-time-name="c09b9c0a-d45d-48c4-987f-5e0419ba02ff" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="country" msprop:FriendlyName="country" msprop:DbColumnName="country" msprop:design-time-name="9a09be99-ab0b-481d-a4b3-9e43afbeb783" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="age_group" msprop:FriendlyName="age_group" msprop:DbColumnName="age_group" msprop:design-time-name="08013ec5-894a-42a2-ac3c-6ccad57fb1f4" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="traveller_type" msprop:FriendlyName="traveller_type" msprop:DbColumnName="traveller_type" msprop:design-time-name="4f49413c-54bf-4e09-859a-5782917247fb" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="start_date" msprop:FriendlyName="start_date" msprop:DbColumnName="start_date" msprop:design-time-name="0f164fae-defd-4bf9-9110-29d20478260a" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="end_date" msprop:FriendlyName="end_date" msprop:DbColumnName="end_date" msprop:design-time-name="ae3b1b3e-8788-4f15-aa91-6c319390ef1c" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="is_current" msprop:FriendlyName="is_current" msprop:DbColumnName="is_current" msprop:design-time-name="40bf44bb-c418-40bb-b944-90d78696ee9a" type="xs:boolean" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Fact_Reviews" msprop:design-time-name="2a8d5d55-7214-4ce0-b848-79710f030dd1" msprop:FriendlyName="Fact_Reviews" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:DbTableName="Fact_Reviews">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="review_id" msprop:FriendlyName="review_id" msprop:DbColumnName="review_id" msprop:design-time-name="44af6346-91d1-46ef-b8e6-993a59bbc8f7" type="xs:int" />
+                  <xs:element name="user_key" msprop:FriendlyName="user_key" msprop:DbColumnName="user_key" msprop:design-time-name="3028045f-d42d-4a0e-878f-7a653631e8ed" type="xs:int" minOccurs="0" />
+                  <xs:element name="hotel_key" msprop:FriendlyName="hotel_key" msprop:DbColumnName="hotel_key" msprop:design-time-name="d23e2dfa-57cc-4c19-a4ba-bef5dc72b502" type="xs:int" minOccurs="0" />
+                  <xs:element name="date_key" msprop:FriendlyName="date_key" msprop:DbColumnName="date_key" msprop:design-time-name="cca9e938-ea6d-4d4c-94fb-84d3e191fe87" type="xs:int" minOccurs="0" />
+                  <xs:element name="score_overall" msprop:FriendlyName="score_overall" msprop:DbColumnName="score_overall" msprop:design-time-name="e9c6e46a-76dc-4122-9cd8-e023d2b4879b" type="xs:double" minOccurs="0" />
+                  <xs:element name="score_cleanliness" msprop:FriendlyName="score_cleanliness" msprop:DbColumnName="score_cleanliness" msprop:design-time-name="cbbd62e0-5ac2-4342-a6eb-ccfed71b7bd4" type="xs:double" minOccurs="0" />
+                  <xs:element name="score_comfort" msprop:FriendlyName="score_comfort" msprop:DbColumnName="score_comfort" msprop:design-time-name="4eb0ae0b-ec2d-4bcc-a73a-807aeb719ebd" type="xs:double" minOccurs="0" />
+                  <xs:element name="score_facilities" msprop:FriendlyName="score_facilities" msprop:DbColumnName="score_facilities" msprop:design-time-name="e308890d-70f6-4550-a07a-af484e9ef844" type="xs:double" minOccurs="0" />
+                  <xs:element name="score_location" msprop:FriendlyName="score_location" msprop:DbColumnName="score_location" msprop:design-time-name="83b96cc8-8b69-4c2b-b180-59c8c146ba00" type="xs:double" minOccurs="0" />
+                  <xs:element name="score_staff" msprop:FriendlyName="score_staff" msprop:DbColumnName="score_staff" msprop:design-time-name="7f1a76e7-958c-4e28-bcb2-d1793b1aec13" type="xs:double" minOccurs="0" />
+                  <xs:element name="score_value_for_money" msprop:FriendlyName="score_value_for_money" msprop:DbColumnName="score_value_for_money" msprop:design-time-name="ab9d6e77-a52d-43c9-a70b-506ac7d9f81e" type="xs:double" minOccurs="0" />
+                  <xs:element name="accm_txn_create_time" msprop:FriendlyName="accm_txn_create_time" msprop:DbColumnName="accm_txn_create_time" msprop:design-time-name="80dac3bb-ecdf-4dcd-8743-62b735b40f9e" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="accm_txn_complete_time" msprop:FriendlyName="accm_txn_complete_time" msprop:DbColumnName="accm_txn_complete_time" msprop:design-time-name="355a7422-e0e8-4edc-8836-25377a61f3f2" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="txn_process_time_hours" msprop:FriendlyName="txn_process_time_hours" msprop:DbColumnName="txn_process_time_hours" msprop:design-time-name="1ae068b7-806c-4a75-9291-fa880d54c6dc" type="xs:int" minOccurs="0" />
+                  <xs:element name="location_id" msprop:FriendlyName="location_id" msprop:DbColumnName="location_id" msprop:design-time-name="c67cf2c0-e1b7-4d2e-a4c9-4c103cef84c6" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_Date" />
+          <xs:field xpath="date_key" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_Hotel_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_Hotel" />
+          <xs:field xpath="hotel_key" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_Location_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_Location" />
+          <xs:field xpath="location_id" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_User_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_User" />
+          <xs:field xpath="user_key" />
+        </xs:unique>
+        <xs:unique name="dbo_Fact_Reviews_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Fact_Reviews" />
+          <xs:field xpath="review_id" />
+        </xs:unique>
+        <xs:keyref name="FK__Fact_Revi__hotel__5165187F" refer="dbo_Dim_Hotel_Constraint1">
+          <xs:selector xpath=".//dbo_Fact_Reviews" />
+          <xs:field xpath="hotel_key" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fact_Location" refer="dbo_Dim_Location_Constraint1">
+          <xs:selector xpath=".//dbo_Fact_Reviews" />
+          <xs:field xpath="location_id" />
+        </xs:keyref>
+        <xs:keyref name="FK__Fact_Revi__user___5070F446" refer="dbo_Dim_User_Constraint1">
+          <xs:selector xpath=".//dbo_Fact_Reviews" />
+          <xs:field xpath="user_key" />
+        </xs:keyref>
+        <xs:keyref name="FK__Fact_Revi__date___52593CB8" refer="Constraint1">
+          <xs:selector xpath=".//dbo_Fact_Reviews" />
+          <xs:field xpath="date_key" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <Hotel_x0020_DW_1 xmlns="" />
+  </Schema>
+</DataSourceView>
