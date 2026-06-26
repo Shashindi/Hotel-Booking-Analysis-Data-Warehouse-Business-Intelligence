@@ -106,8 +106,3 @@ DAX measures: `Total Reviews`, `Avg Overall Score`, `Avg Cleanliness`, `Avg Comf
 
 ---
 
-## 👤 Author
-
-**R A S R Harischandra**
-Student ID: IT23194908 · Batch: Y3.S2.DS.WE.02.02
-Sri Lanka Institute of Information Technology (SLIIT)
